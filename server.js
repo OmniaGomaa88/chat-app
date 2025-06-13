@@ -17,13 +17,13 @@ io.on('connection',(Socket)=>{
     console.log('un utilisature est connecté');
 });
 
-//Quand un client envoie un message .le server recoit ce message ,ensuite rééemet 
+//Quand un client envoie un message .le server recoit ce message ,ensuite réémet 
 // le message à tous les autre clients
 Socket.on('chat message',(msg)=>{
     io.emite('chat message', msg);
 });
 
-//une message affiche quand le clinet ferme l'onglet ou auitte 
+//une message affiche quand le clinet ferme l'onglet ou quitte 
 
 Socket.on('disconnect',()=>{
     console.log("un utilisateur s\'est deconnecte")
