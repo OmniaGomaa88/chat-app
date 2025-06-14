@@ -16,11 +16,20 @@ header{
     border-radius: 10px 10px 0px 0px;
     width: 50%;
     margin-top: 10px;
-    
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
 }
 header p{
    padding-top: 20px;
+   font-weight: bold;
+   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+header img{
+  
+  width: 20%;
+}
+/***************************************************/
 #messageSpace{
    border: solid 1px;
    width: 50%;

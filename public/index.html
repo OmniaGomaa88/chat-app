@@ -10,22 +10,27 @@
 <!--------------------------------------------------------------------------------------------->
      <!-- le header ou il affich le nom de la'pp et le logo d'utilisatuer-->
         <header>
-            <p>Chat App</p>
-            <img src="" alt="">
+         <img src="./imgs/Logo.png" alt="">
+         <p>Chat App</p>
         </header>
       <!------------------------------------------------------------------------------------------>  
        <!--le div ou il affiche les messags--> 
         <section id="messageSpace">
             <!-- deux div pour faier deffirance de style enter le message envoier et recu-->
-           <div class="msgEnvoi">hello this is my message</div>
-           <div class="msgRcu"> hello to the chat app</div>
+        
 
         </section>
      <!------------------------------------------------------------------------------------------>  
         <!--le parti ou on ecrit le message et le button d'envoier-->
         <section id="envoiSpace">
-           <input type="text" id="msgInput"> 
-           <button>Envoi</button>
+           <input type="text" id="msgInput" placeholder="Ecrivez votre message ici..."> 
+           <button id="envoiBtn">Envoi</button>
         </section>
+
+        <!--connextion avec le soket io buplitiqe-->
+        <script src="/socket.io/socket.io.js"></script>
+        <!--connextion avec le app js-->
+        <script src="app.js"></script>
+
 </body>
 </html>

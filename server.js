@@ -1,8 +1,7 @@
-const { Socket } = require('dgram');
 const express = require('express'); //on utilise "express" pour creer un server web"
 const http = require('http');//creer server http compatible avec socket.io
-const { disconnect } = require('process');
-const {server}= require ('socket.io');
+
+const {Server}= require ('socket.io');
 const app = express(); //une instance de l'applecation express
 //creer un server http à partir de app
 const server = http.createServer(app)
@@ -13,21 +12,24 @@ app.use(express.static('public'));
 
 
 //Quand un client se connecte au server ,represente ce client connecte
-io.on('connection',(Socket)=>{
+io.on('connection',(socket)=>{
     console.log('un utilisature est connecté');
-});
-
-//Quand un client envoie un message .le server recoit ce message ,ensuite réémet 
+    //Quand un client envoie un message .le server recoit ce message ,ensuite réémet 
 // le message à tous les autre clients
-Socket.on('chat message',(msg)=>{
-    io.emite('chat message', msg);
+socket.on("chat message",(msg)=>{
+    io.emit('chat message', msg);
 });
 
 //une message affiche quand le clinet ferme l'onglet ou quitte 
 
-Socket.on('disconnect',()=>{
+socket.on('disconnect',()=>{
     console.log("un utilisateur s\'est deconnecte")
 })
+});
+
+
+
+
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT,()=>{
